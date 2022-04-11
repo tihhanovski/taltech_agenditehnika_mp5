@@ -125,6 +125,9 @@
 traceln("ekraani seadistus: InfoAPI aadress");
 infoDisplay.infoAPI = infoAPI;
 
+traceln("infoAPI seadistus: MeiePilve aadress");
+infoAPI.meiePilv = meiePilv;
+
 //sensorCO2_202.display = infoDisplay;
 //traceln(Calendar.getInstance().get(Calendar.DAY_OF_WEEK));]]></EntryAction>
 						<FillColor/>
@@ -245,7 +248,7 @@ infoDisplay.infoAPI = infoAPI;
 				<EmbeddedObject>
 					<Id>1649405748231</Id>
 					<Name><![CDATA[infoAPI]]></Name>
-					<X>800</X><Y>110</Y>
+					<X>660</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -260,6 +263,71 @@ infoDisplay.infoAPI = infoAPI;
 							<PackageName><![CDATA[mp5_test]]></PackageName>
 							<ClassName><![CDATA[InfoAPI]]></ClassName>
 							<ItemName><![CDATA[1649405748220]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[meiePilv]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InEnvironment>true</InEnvironment>	
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1649660275359</Id>
+					<Name><![CDATA[meiePilv]]></Name>
+					<X>860</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<PresentationId>1649660275360</PresentationId>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[mp5_test]]></PackageName>
+						<ClassName><![CDATA[MeiePilv]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[mp5_test]]></PackageName>
+							<ClassName><![CDATA[MeiePilv]]></ClassName>
+							<ItemName><![CDATA[1649660275348]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
@@ -408,7 +476,26 @@ infoDisplay.infoAPI = infoAPI;
 				<EmbeddedObjectPresentation>
 					<Id>1649405748232</Id>
 					<Name><![CDATA[infoAPI_presentation]]></Name>
-					<X>850</X><Y>60</Y>
+					<X>710</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
+					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
+					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
+					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
+					<Latitude>0.0</Latitude>
+					<Longitude>0.0</Longitude>
+				</EmbeddedObjectPresentation>
+				<EmbeddedObjectPresentation>
+					<Id>1649660275360</Id>
+					<Name><![CDATA[meiePilv_presentation]]></Name>
+					<X>910</X><Y>60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -531,10 +618,22 @@ küsib infot InfoAPI käest]]></Description>
 			<CurrentLevel>1649082276302</CurrentLevel>
 			<ConnectionsId>1649082276298</ConnectionsId>
 			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1649415761710</Id>
+					<Name><![CDATA[roomToShow]]></Name>
+					<X>20</X><Y>710</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1649082276349</Id>
 					<Name><![CDATA[displayedData]]></Name>
-					<X>10</X><Y>310</Y>
+					<X>20</X><Y>680</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -555,7 +654,7 @@ küsib infot InfoAPI käest]]></Description>
 				<Variable Class="Parameter">
 					<Id>1649408227118</Id>
 					<Name><![CDATA[infoAPI]]></Name>
-					<X>10</X><Y>280</Y>
+					<X>20</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -592,7 +691,7 @@ display.setText(displayedData);]]></EntryAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1649403038133</Id>
 					<Name><![CDATA[DisplayStarted]]></Name>
-					<X>520</X><Y>60</Y>
+					<X>220</X><Y>650</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -605,7 +704,7 @@ display.setText(displayedData);]]></EntryAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1649403265320</Id>
 					<Name><![CDATA[DisplayMainPage]]></Name>
-					<X>520</X><Y>150</Y>
+					<X>220</X><Y>740</Y>
 					<Label><X>100</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -618,13 +717,14 @@ display.setText(displayedData);]]></EntryAction>
 					<Id>1649403310795</Id>
 					<Name><![CDATA[QueryMainPageData]]></Name>
 					<Description><![CDATA[TODO: request data from InfoAPI]]></Description>
-					<X>540</X><Y>200</Y>
+					<X>240</X><Y>790</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="170" Height="30">
-						<EntryAction><![CDATA[send(new HttpRequest(this, "/ruumid/"), infoAPI);
+						<EntryAction><![CDATA[displayedData = "Please wait...";
+send(new HttpRequest(this, "/ruumid/"), infoAPI);
 traceln("Request /ruumid/ sent");]]></EntryAction>
 						<FillColor/>
 					</Properties>
@@ -635,7 +735,7 @@ traceln("Request /ruumid/ sent");]]></EntryAction>
 					<Description><![CDATA[TODO: output received data
 TODO: handle errors
 TODO: handle timeouts]]></Description>
-					<X>540</X><Y>350</Y>
+					<X>240</X><Y>940</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -648,7 +748,7 @@ TODO: handle timeouts]]></Description>
 				<StatechartElement Class="State" ParentState="DisplayMainPage" ParentStateId="1649403265320">
 					<Id>1649408667086</Id>
 					<Name><![CDATA[GotResponse]]></Name>
-					<X>630</X><Y>350</Y>
+					<X>330</X><Y>940</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -660,12 +760,65 @@ TODO: handle timeouts]]></Description>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1649408788812</Id>
 					<Name><![CDATA[Idle]]></Name>
-					<X>550</X><Y>450</Y>
+					<X>250</X><Y>1040</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="220" Height="30">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1649415019598</Id>
+					<Name><![CDATA[DisplayRoomPage]]></Name>
+					<X>610</X><Y>740</Y>
+					<Label><X>210</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="330" Height="260">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="DisplayRoomPage" ParentStateId="1649415019598">
+					<Id>1649415228430</Id>
+					<Name><![CDATA[QueryRoomData]]></Name>
+					<X>630</X><Y>790</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<EntryAction><![CDATA[displayedData = "Please wait...";
+String url = "/room/" + roomToShow;
+send(new HttpRequest(this, url), infoAPI);
+traceln("Request " + url + " sent");]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="DisplayRoomPage" ParentStateId="1649415019598">
+					<Id>1649415249590</Id>
+					<Name><![CDATA[RoomPageTimeout]]></Name>
+					<X>630</X><Y>940</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="120" Height="30">
+						<EntryAction><![CDATA[displayedData = "Timeout requesting room page from InfoAPI";]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="DisplayRoomPage" ParentStateId="1649415019598">
+					<Id>1649415284468</Id>
+					<Name><![CDATA[GotRoomResponse]]></Name>
+					<X>790</X><Y>860</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="120" Height="30">
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
@@ -720,7 +873,7 @@ TODO: handle timeouts]]></Description>
 				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 					<Id>1649403007195</Id>
 					<Name><![CDATA[displayStatechart]]></Name>
-					<X>570</X><Y>30</Y>
+					<X>270</X><Y>620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -735,7 +888,7 @@ TODO: handle timeouts]]></Description>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1649403277299</Id>
 					<Name><![CDATA[transition1]]></Name>
-					<X>570</X><Y>90</Y>
+					<X>270</X><Y>680</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -765,7 +918,7 @@ TODO: handle timeouts]]></Description>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1649403471806</Id>
 					<Name><![CDATA[userRequestedMainPage]]></Name>
-					<X>590</X><Y>480</Y>
+					<X>290</X><Y>1070</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -798,7 +951,7 @@ TODO: handle timeouts]]></Description>
 				<StatechartElement Class="Transition" ParentState="DisplayMainPage" ParentStateId="1649403265320">
 					<Id>1649403588975</Id>
 					<Name><![CDATA[transition4]]></Name>
-					<X>570</X><Y>230</Y>
+					<X>270</X><Y>820</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -828,7 +981,7 @@ TODO: handle timeouts]]></Description>
 				<StatechartElement Class="InitialStatePointer" ParentState="DisplayMainPage" ParentStateId="1649403265320">
 					<Id>1649403757538</Id>
 					<Name><![CDATA[initialState]]></Name>
-					<X>570</X><Y>170</Y>
+					<X>270</X><Y>760</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -843,18 +996,18 @@ TODO: handle timeouts]]></Description>
 				<StatechartElement Class="Transition" ParentState="DisplayMainPage" ParentStateId="1649403265320">
 					<Id>1649408706032</Id>
 					<Name><![CDATA[transition2]]></Name>
-					<X>640</X><Y>230</Y>
+					<X>370</X><Y>820</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>30</X><Y>120</Y></Point>
+						<Point><X>0</X><Y>120</Y></Point>
 					</Points>
 					<IconOffset>60.0</IconOffset>
 					<Properties Source="1649403310795" Target="1649408667086" Trigger="message">
-						<Action><![CDATA[traceln("Got response: " + msg);
+						<Action><![CDATA[traceln("Got response: " + msg.toString());
 
 String s = "Ruumide nimekiri:\n";
 List<String> l = (List<String>)msg.getPayload();
@@ -880,7 +1033,7 @@ displayedData = s;]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1649408811914</Id>
 					<Name><![CDATA[transition5]]></Name>
-					<X>580</X><Y>380</Y>
+					<X>280</X><Y>970</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -910,7 +1063,7 @@ displayedData = s;]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1649408819285</Id>
 					<Name><![CDATA[transition6]]></Name>
-					<X>670</X><Y>380</Y>
+					<X>370</X><Y>970</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -921,6 +1074,188 @@ displayedData = s;]]></Action>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1649408667086" Target="1649408788812" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649415069948</Id>
+					<Name><![CDATA[roomDisplayRequested]]></Name>
+					<X>440</X><Y>1070</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>30</Y></Point>
+						<Point><X>140</X><Y>30</Y></Point>
+						<Point><X>140</X><Y>-300</Y></Point>
+						<Point><X>170</X><Y>-300</Y></Point>
+					</Points>
+					<IconOffset>220.0</IconOffset>
+					<Properties Source="1649408788812" Target="1649415019598" Trigger="message">
+						<Action><![CDATA[roomToShow = msg;]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[String]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[satisfies]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[!msg.equalsIgnoreCase("");]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="DisplayRoomPage" ParentStateId="1649415019598">
+					<Id>1649415307691</Id>
+					<Name><![CDATA[transition]]></Name>
+					<X>650</X><Y>820</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>120</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1649415228430" Target="1649415249590" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="InitialStatePointer" ParentState="DisplayRoomPage" ParentStateId="1649415019598">
+					<Id>1649415397936</Id>
+					<Name><![CDATA[initialState1]]></Name>
+					<X>730</X><Y>760</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-10</X><Y>30</Y></Point>
+					</Points>
+					<Properties Target="1649415228430">
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649415488448</Id>
+					<Name><![CDATA[transition3]]></Name>
+					<X>650</X><Y>970</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>150</Y></Point>
+						<Point><X>-230</X><Y>150</Y></Point>
+						<Point><X>-230</X><Y>100</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1649415249590" Target="1649408788812" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="DisplayRoomPage" ParentStateId="1649415019598">
+					<Id>1649415553450</Id>
+					<Name><![CDATA[transition7]]></Name>
+					<X>710</X><Y>820</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>20</Y></Point>
+						<Point><X>100</X><Y>20</Y></Point>
+						<Point><X>100</X><Y>40</Y></Point>
+					</Points>
+					<IconOffset>60.0</IconOffset>
+					<Properties Source="1649415228430" Target="1649415284468" Trigger="message">
+						<Action><![CDATA[traceln("Got response: " + msg.toString());
+
+String s = "Ruumi " + roomToShow + " andmed:\n";
+List<String> l = (List<String>)msg.getPayload();
+for(String row : l)
+	s += row + "\n";
+displayedData = s;]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[HttpResponse]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649415633853</Id>
+					<Name><![CDATA[transition8]]></Name>
+					<X>810</X><Y>890</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>260</Y></Point>
+						<Point><X>-410</X><Y>260</Y></Point>
+						<Point><X>-410</X><Y>180</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1649415284468" Target="1649408788812" Trigger="timeout">
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -2412,6 +2747,51 @@ traceln("send data " + m);
 						<Type><![CDATA[HttpRequest]]></Type>        
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1649661249762</Id>
+					<Name><![CDATA[responseToSend]]></Name>
+					<X>30</X><Y>140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[HttpResponse]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1649661580369</Id>
+					<Name><![CDATA[meiePilvResponse]]></Name>
+					<X>30</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[HttpResponse]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1649661056276</Id>
+					<Name><![CDATA[meiePilv]]></Name>
+					<X>30</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[MeiePilv]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1649661056274</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 			</Variables>
 			<StatechartElements>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
@@ -2428,13 +2808,13 @@ traceln("send data " + m);
 				</StatechartElement>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1649405846458</Id>
-					<Name><![CDATA[HandlingRequest]]></Name>
-					<X>150</X><Y>170</Y>
+					<Name><![CDATA[HandlingMainPageRequest]]></Name>
+					<X>220</X><Y>170</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties Width="100" Height="30">
+					<Properties Width="170" Height="30">
 						<EntryAction><![CDATA[traceln("InfoAPI: handle request");
 HttpResponse res = new HttpResponse(200, "Response OK");
 
@@ -2443,6 +2823,94 @@ res.setPayload(ss);
 
 send(res, requestToHandle.getInitiator());
 ]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1649416133177</Id>
+					<Name><![CDATA[HandlingRoomPageRequest]]></Name>
+					<X>220</X><Y>250</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="180" Height="30">
+						<EntryAction><![CDATA[traceln("InfoAPI: handle request");
+responseToSend = new HttpResponse(200, "Response OK");
+
+//String roomName = selectUniqueValue("select room + ' ' + description from rooms where room = ", requestToHandle.getRoomQuery());
+
+String roomDesc = selectFrom(rooms)
+	.where(rooms.room.equalsIgnoreCase(requestToHandle.getRoomQuery()))
+	.uniqueResult(rooms.description);
+
+
+List<String> ss = selectValues("select room + ' ' + dow + ' ' + start + ' - ' + finish + ' ' + lecture from timetable where room = ?", requestToHandle.getRoomQuery());
+//List<String> ss = new ArrayList<String>();
+ss.add("Room " + roomDesc);
+ss.add("TODO:");
+ss.add(requestToHandle.getRoomQuery());
+responseToSend.setPayload(ss);
+
+]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1649661200196</Id>
+					<Name><![CDATA[RequestingFromMeiePilv]]></Name>
+					<X>220</X><Y>330</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="180" Height="30">
+						<EntryAction><![CDATA[String url = "/room/" + requestToHandle.getRoomQuery();
+send(new HttpRequest(this, url), meiePilv);
+traceln("Request " + url + " sent");]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1649661311663</Id>
+					<Name><![CDATA[SendingResponse]]></Name>
+					<X>220</X><Y>480</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="180" Height="30">
+						<EntryAction><![CDATA[send(responseToSend, requestToHandle.getInitiator());
+traceln("Sent response from InfoAPI to " + requestToHandle.getInitiator().getClass().getName());]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1649661515992</Id>
+					<Name><![CDATA[Timeout]]></Name>
+					<X>170</X><Y>400</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1649661521088</Id>
+					<Name><![CDATA[GotResponse]]></Name>
+					<X>340</X><Y>400</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<EntryAction><![CDATA[List<String> rs = (List<String>)(meiePilvResponse.getPayload());
+List<String> ss = (List<String>)(responseToSend.getPayload());
+
+ss.add("MeiePilv:");
+ss.addAll(rs);]]></EntryAction>
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
@@ -2464,7 +2932,7 @@ send(res, requestToHandle.getInitiator());
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1649405868857</Id>
 					<Name><![CDATA[transition]]></Name>
-					<X>200</X><Y>100</Y>
+					<X>240</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2475,8 +2943,7 @@ send(res, requestToHandle.getInitiator());
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1649405829031" Target="1649405846458" Trigger="message">
-						<Action><![CDATA[traceln(msg);
-requestToHandle = msg;
+						<Action><![CDATA[requestToHandle = msg;
 ]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
@@ -2489,15 +2956,15 @@ requestToHandle = msg;
 						</Rate>
 						<MessageType><![CDATA[HttpRequest]]></MessageType>
 						<DefaultTransition>true</DefaultTransition>
-						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<FilterType><![CDATA[satisfies]]></FilterType>
 						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
-						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+						<SatisfiesExpression><![CDATA[msg.isMainPageRequest()]]></SatisfiesExpression>
 					</Properties>	
 				</StatechartElement>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1649408091483</Id>
 					<Name><![CDATA[transition1]]></Name>
-					<X>200</X><Y>200</Y>
+					<X>240</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2505,15 +2972,234 @@ requestToHandle = msg;
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>0</X><Y>30</Y></Point>
-						<Point><X>90</X><Y>30</Y></Point>
-						<Point><X>90</X><Y>-120</Y></Point>
-						<Point><X>50</X><Y>-120</Y></Point>
+						<Point><X>170</X><Y>30</Y></Point>
+						<Point><X>170</X><Y>-110</Y></Point>
+						<Point><X>10</X><Y>-110</Y></Point>
 					</Points>
-					<IconOffset>200.0</IconOffset>
+					<IconOffset>270.0</IconOffset>
 					<Properties Source="1649405846458" Target="1649405829031" Trigger="timeout">
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649416172242</Id>
+					<Name><![CDATA[transition2]]></Name>
+					<X>200</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>160</Y></Point>
+						<Point><X>20</X><Y>160</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1649405829031" Target="1649416133177" Trigger="message">
+						<Action><![CDATA[requestToHandle = msg;]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[HttpRequest]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[satisfies]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[msg.isRoomDataRequest()]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649417775098</Id>
+					<Name><![CDATA[transition3]]></Name>
+					<X>330</X><Y>510</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>20</Y></Point>
+						<Point><X>180</X><Y>20</Y></Point>
+						<Point><X>180</X><Y>-430</Y></Point>
+						<Point><X>-80</X><Y>-430</Y></Point>
+					</Points>
+					<IconOffset>330.0</IconOffset>
+					<Properties Source="1649661311663" Target="1649405829031" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[250]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MILLISECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649661228867</Id>
+					<Name><![CDATA[transition4]]></Name>
+					<X>310</X><Y>280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>50</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1649416133177" Target="1649661200196" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[250]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MILLISECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649661538859</Id>
+					<Name><![CDATA[transition5]]></Name>
+					<X>240</X><Y>360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>40</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1649661200196" Target="1649661515992" Trigger="timeout">
+						<Action><![CDATA[List<String> ss = (List<String>)(responseToSend.getPayload());
+
+ss.add("MeiePilv: TIMEOUT");]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649661543946</Id>
+					<Name><![CDATA[transition6]]></Name>
+					<X>370</X><Y>360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>40</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1649661200196" Target="1649661521088" Trigger="message">
+						<Action><![CDATA[meiePilvResponse = msg;]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[HttpResponse]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649661616114</Id>
+					<Name><![CDATA[transition7]]></Name>
+					<X>240</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>50</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1649661515992" Target="1649661311663" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[250]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MILLISECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649661624160</Id>
+					<Name><![CDATA[transition8]]></Name>
+					<X>370</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>50</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1649661521088" Target="1649661311663" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[250]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MILLISECOND]]></Unit>
 						</Timeout>
 						<Condition><![CDATA[true]]></Condition>
 						<Rate Class="CodeUnitValue">
@@ -2726,6 +3412,439 @@ requestToHandle = msg;
 			</Presentation>
 
 		</ActiveObjectClass>
+		<!--   =========   Active Object Class   ========  -->
+		<ActiveObjectClass>
+			<Id>1649660275350</Id>
+			<Name><![CDATA[MeiePilv]]></Name>
+			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
+			<Generic>false</Generic>
+			<GenericParameter>
+				<Id>1649660275348</Id>
+				<Name><![CDATA[1649660275348]]></Name>
+				<GenericParameterValue Class="CodeValue">
+					<Code><![CDATA[T extends Agent]]></Code>
+				</GenericParameterValue>
+				<GenericParameterLabel><![CDATA[Generic parameter:]]></GenericParameterLabel>
+			</GenericParameter>
+			<FlowChartsUsage>ENTITY</FlowChartsUsage>
+			<SamplesToKeep>100</SamplesToKeep>
+			<LimitNumberOfArrayElements>false</LimitNumberOfArrayElements>
+			<ElementsLimitValue>100</ElementsLimitValue>
+			<MakeDefaultViewArea>true</MakeDefaultViewArea>
+			<SceneGridColor/>
+			<SceneBackgroundColor/>
+			<SceneSkybox>null</SceneSkybox>
+			<AgentProperties>
+	 			<SpaceType>CONTINUOUS</SpaceType>			
+				<EnvironmentDefinesInitialLocation>true</EnvironmentDefinesInitialLocation>
+				<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>
+				<RotateAnimationVertically>false</RotateAnimationVertically>
+				<VelocityCode Class="CodeUnitValue">
+					<Code><![CDATA[10]]></Code>
+					<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+				</VelocityCode>
+				<PhysicalLength Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalLength>
+				<PhysicalWidth Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalWidth>
+				<PhysicalHeight Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalHeight>
+			</AgentProperties>
+			<EnvironmentProperties>
+					<EnableSteps>false</EnableSteps>
+					<StepDurationCode Class="CodeUnitValue">
+						<Code><![CDATA[1.0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</StepDurationCode>
+					<SpaceType>CONTINUOUS</SpaceType>
+					<WidthCode><![CDATA[500]]></WidthCode>
+					<HeightCode><![CDATA[500]]></HeightCode>
+					<ZHeightCode><![CDATA[0]]></ZHeightCode>
+					<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
+					<RowsCountCode><![CDATA[100]]></RowsCountCode>
+					<NeigborhoodType>MOORE</NeigborhoodType>
+					<LayoutType>USER_DEF</LayoutType>
+					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
+					<NetworkType>USER_DEF</NetworkType>
+					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
+					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
+					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
+					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
+					<MCode><![CDATA[10]]></MCode>
+			</EnvironmentProperties>
+			<DatasetsCreationProperties>
+				<AutoCreate>true</AutoCreate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1649664000000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+			</DatasetsCreationProperties>
+			<ScaleRuler>
+				<Id>1649660275346</Id>
+				<Name><![CDATA[scale]]></Name>
+				<X>0</X><Y>-150</Y>
+				<PublicFlag>false</PublicFlag>
+				<PresentationFlag>false</PresentationFlag>
+				<ShowLabel>false</ShowLabel>
+				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+				<Length>100</Length>
+				<Rotation>0</Rotation>
+				<ScaleType>BASED_ON_LENGTH</ScaleType>
+				<ModelLength>10</ModelLength>
+				<LengthUnits>METER</LengthUnits>
+				<Scale>10</Scale>
+				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
+			</ScaleRuler>
+			<CurrentLevel>1649660275349</CurrentLevel>
+			<ConnectionsId>1649660275345</ConnectionsId>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1649660423798</Id>
+					<Name><![CDATA[requestToHandle]]></Name>
+					<X>60</X><Y>130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[HttpRequest]]></Type>        
+					</Properties>
+				</Variable>
+			</Variables>
+			<StatechartElements>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1649660423802</Id>
+					<Name><![CDATA[Idle]]></Name>
+					<X>180</X><Y>120</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1649660423807</Id>
+					<Name><![CDATA[HandlingRoomPageRequest]]></Name>
+					<X>250</X><Y>300</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="180" Height="30">
+						<EntryAction><![CDATA[traceln("InfoAPI: handle request");
+HttpResponse res = new HttpResponse(200, "Response OK");
+
+//List<String> params = new ArrayList<String>(Arrays.asList({"Niiskus", "Temperatuur", "CO2", "Inimeste arv"}));
+
+List<String> params = Collections.unmodifiableList(Arrays.asList("Niiskus", "Temperatuur", "CO2", "Inimeste arv"));
+
+List<String> ss = new ArrayList<String>();
+//ss.add("Room " + roomDesc);
+
+java.util.Random rd = new Random();
+
+for(String s : params) {
+	ss.add(s + ": " + rd.nextFloat() * 100);
+}
+
+res.setPayload(ss);
+send(res, requestToHandle.getInitiator());
+]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
+					<Id>1649660423809</Id>
+					<Name><![CDATA[statechart]]></Name>
+					<X>230</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>40</Y></Point>
+					</Points>
+					<Properties Target="1649660423802">
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649660423815</Id>
+					<Name><![CDATA[transition2]]></Name>
+					<X>230</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>160</Y></Point>
+						<Point><X>20</X><Y>160</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1649660423802" Target="1649660423807" Trigger="message">
+						<Action><![CDATA[requestToHandle = msg;]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[HttpRequest]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[satisfies]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[msg.isRoomDataRequest()]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1649660423817</Id>
+					<Name><![CDATA[transition3]]></Name>
+					<X>430</X><Y>310</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>110</X><Y>0</Y></Point>
+						<Point><X>110</X><Y>-180</Y></Point>
+						<Point><X>-150</X><Y>-180</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1649660423807" Target="1649660423802" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+			</StatechartElements>
+			<AgentLinks>
+				<AgentLink>
+					<Id>1649660275345</Id>
+					<Name><![CDATA[connections]]></Name>
+					<X>50</X><Y>-50</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<HandleReceiveInConnections>false</HandleReceiveInConnections>
+					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
+					<AgentLinkBidirectional>true</AgentLinkBidirectional>
+					<MessageType><![CDATA[Object]]></MessageType>
+					<StatechartReference>
+						<PackageName><![CDATA[mp5_test]]></PackageName>
+						<ClassName><![CDATA[MeiePilv]]></ClassName>
+						<ItemName><![CDATA[statechart]]></ItemName>
+					</StatechartReference>
+					<LineStyle>SOLID</LineStyle>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineZOrder>UNDER_AGENTS</LineZOrder>
+					<LineArrow>NONE</LineArrow>
+					<LineArrowPosition>END</LineArrowPosition>
+				</AgentLink>
+			</AgentLinks>
+
+			<ContainerLinks>
+				<ContainerLink>
+					<Id>1649660275403</Id>
+					<Name><![CDATA[main]]></Name>
+					<X>50</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[mp5_test]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+					</ActiveObjectClass>
+				</ContainerLink>
+			</ContainerLinks>
+
+			<Presentation>
+				<Level>
+					<Id>1649660275349</Id>
+					<Name><![CDATA[level]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
+
+			<Presentation>
+				<Group>
+					<Id>1649660275353</Id>
+					<Name><![CDATA[cloud]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Curve ControlPoints="true">
+					<Id>1649660275355</Id>
+					<Name><![CDATA[_ps300]]></Name>
+					<X>-40</X><Y>-31</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-11702146</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<BeginArrowSize>1</BeginArrowSize>
+					<BeginArrowStyle>0</BeginArrowStyle>
+					<EndArrowSize>1</EndArrowSize>
+					<EndArrowStyle>0</EndArrowStyle>
+					<FillColor>-5383962</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Points>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>11</X><Y>-10</Y><Z>0</Z></Point>
+					   <Point><X>23</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>23</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>23</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>26</X><Y>-12</Y><Z>0</Z></Point>
+					   <Point><X>45</X><Y>-12</Y><Z>0</Z></Point>
+					   <Point><X>64</X><Y>-12</Y><Z>0</Z></Point>
+					   <Point><X>68</X><Y>6</Y><Z>0</Z></Point>
+					   <Point><X>68</X><Y>6</Y><Z>0</Z></Point>
+					   <Point><X>68</X><Y>6</Y><Z>0</Z></Point>
+					   <Point><X>82</X><Y>-2</Y><Z>0</Z></Point>
+					   <Point><X>89</X><Y>12</Y><Z>0</Z></Point>
+					   <Point><X>97</X><Y>26</Y><Z>0</Z></Point>
+					   <Point><X>83</X><Y>32</Y><Z>0</Z></Point>
+					   <Point><X>83</X><Y>32</Y><Z>0</Z></Point>
+					   <Point><X>83</X><Y>32</Y><Z>0</Z></Point>
+					   <Point><X>93</X><Y>42</Y><Z>0</Z></Point>
+					   <Point><X>85</X><Y>53</Y><Z>0</Z></Point>
+					   <Point><X>76</X><Y>64</Y><Z>0</Z></Point>
+					   <Point><X>59</X><Y>56</Y><Z>0</Z></Point>
+					   <Point><X>59</X><Y>56</Y><Z>0</Z></Point>
+					   <Point><X>59</X><Y>56</Y><Z>0</Z></Point>
+					   <Point><X>54</X><Y>70</Y><Z>0</Z></Point>
+					   <Point><X>37</X><Y>70</Y><Z>0</Z></Point>
+					   <Point><X>21</X><Y>70</Y><Z>0</Z></Point>
+					   <Point><X>17</X><Y>55</Y><Z>0</Z></Point>
+					   <Point><X>17</X><Y>55</Y><Z>0</Z></Point>
+					   <Point><X>17</X><Y>55</Y><Z>0</Z></Point>
+					   <Point><X>7</X><Y>61</Y><Z>0</Z></Point>
+					   <Point><X>-3</X><Y>51</Y><Z>0</Z></Point>
+					   <Point><X>-15</X><Y>35</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>23</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>23</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>23</Y><Z>0</Z></Point>
+					   <Point><X>-11</X><Y>10</Y><Z>0</Z></Point>
+					</Points>
+					<Closed>true</Closed>
+				</Curve>
+				<Curve ControlPoints="true">
+					<Id>1649660275357</Id>
+					<Name><![CDATA[_ps301]]></Name>
+					<X>-37</X><Y>-26</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<BeginArrowSize>1</BeginArrowSize>
+					<BeginArrowStyle>0</BeginArrowStyle>
+					<EndArrowSize>1</EndArrowSize>
+					<EndArrowStyle>0</EndArrowStyle>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Points>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>9</X><Y>-10</Y><Z>0</Z></Point>
+					   <Point><X>21</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>21</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>21</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>24</X><Y>-14</Y><Z>0</Z></Point>
+					   <Point><X>42</X><Y>-14</Y><Z>0</Z></Point>
+					   <Point><X>58</X><Y>-13</Y><Z>0</Z></Point>
+					   <Point><X>60</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>60</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>60</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>58</X><Y>-11</Y><Z>0</Z></Point>
+					   <Point><X>42</X><Y>-12</Y><Z>0</Z></Point>
+					   <Point><X>27</X><Y>-13</Y><Z>0</Z></Point>
+					   <Point><X>21</X><Y>5</Y><Z>0</Z></Point>
+					   <Point><X>21</X><Y>5</Y><Z>0</Z></Point>
+					   <Point><X>21</X><Y>5</Y><Z>0</Z></Point>
+					   <Point><X>10</X><Y>-5</Y><Z>0</Z></Point>
+					   <Point><X>2</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>-5</X><Y>8</Y><Z>0</Z></Point>
+					   <Point><X>3</X><Y>19</Y><Z>0</Z></Point>
+					   <Point><X>3</X><Y>19</Y><Z>0</Z></Point>
+					   <Point><X>3</X><Y>19</Y><Z>0</Z></Point>
+					   <Point><X>-8</X><Y>29</Y><Z>0</Z></Point>
+					   <Point><X>-4</X><Y>42</Y><Z>0</Z></Point>
+					   <Point><X>-11</X><Y>30</Y><Z>0</Z></Point>
+					   <Point><X>1</X><Y>18</Y><Z>0</Z></Point>
+					   <Point><X>1</X><Y>18</Y><Z>0</Z></Point>
+					   <Point><X>1</X><Y>18</Y><Z>0</Z></Point>
+					   <Point><X>-9</X><Y>10</Y><Z>0</Z></Point>
+					</Points>
+					<Closed>true</Closed>
+				</Curve>
+			</Presentation>
+
+				</Group>
+			</Presentation>
+
+				</Level>
+			</Presentation>
+
+		</ActiveObjectClass>
 	</ActiveObjectClasses>	
 	<DifferentialEquationsMethod>EULER</DifferentialEquationsMethod>
 	<MixedEquationsMethod>RK45_NEWTON</MixedEquationsMethod>
@@ -2869,8 +3988,12 @@ public class MeiepilvDataRecord implements Serializable {
  */	
 public class HttpRequest implements Serializable {
 	
+	public static final String MAIN_PAGE_REQUEST = "/ruumid/";
+	public static final String ROOM_PAGE_REQUEST = "/room/";
+
 	private final Agent initiator;
 	private final String request;
+	
 	
 	public Agent getInitiator() {
 		return initiator;
@@ -2898,6 +4021,21 @@ public class HttpRequest implements Serializable {
 	 * It needs to be changed when this class gets changed
 	 */ 
 	private static final long serialVersionUID = 1L;
+	
+	public boolean isMainPageRequest() {
+		return request.equalsIgnoreCase(MAIN_PAGE_REQUEST);
+	}
+	
+	public boolean isRoomDataRequest() {
+		return request.startsWith(ROOM_PAGE_REQUEST);
+	}
+	
+	public String getRoomQuery() {
+		if(isRoomDataRequest())
+			return request.substring(ROOM_PAGE_REQUEST.length());
+		else
+			return "";
+	}
 
 }]]></Text>
 		</JavaClass>
@@ -2943,6 +4081,35 @@ public class HttpResponse implements Serializable {
 
 	@Override
 	public String toString() {
+		return "" + status + " " + statusMessage + " // " + payload;
+	}
+
+	/**
+	 * This number is here for model snapshot storing purpose<br>
+	 * It needs to be changed when this class gets changed
+	 */ 
+	private static final long serialVersionUID = 1L;
+
+}]]></Text>
+		</JavaClass>
+		<!--   =========   Java Class   ========  -->
+		<JavaClass>
+			<Id>1649416547630</Id>
+			<Name><![CDATA[InfoDisplayConstants]]></Name>
+			<Text><![CDATA[/**
+ * InfoDisplayConstants
+ */	
+public class InfoDisplayConstants implements Serializable {
+	
+
+    /**
+     * Default constructor
+     */
+    public InfoDisplayConstants() {
+    }
+
+	@Override
+	public String toString() {
 		return super.toString();
 	}
 
@@ -2951,6 +4118,8 @@ public class HttpResponse implements Serializable {
 	 * It needs to be changed when this class gets changed
 	 */ 
 	private static final long serialVersionUID = 1L;
+	
+	
 
 }]]></Text>
 		</JavaClass>
