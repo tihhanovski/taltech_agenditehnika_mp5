@@ -157,6 +157,18 @@ meiePilv.setPosition(new Position(450, 100, 0));]]></StartupCode>
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1651044508782</Id>
+					<Name><![CDATA[dataQueryRate]]></Name>
+					<X>890</X><Y>130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+					</Properties>
+				</Variable>
 			</Variables>
 			<StatechartElements>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
@@ -800,7 +812,7 @@ infoAPI.meiePilv = meiePilv;
 						<MaxValue><![CDATA[50]]></MaxValue>
 						<Step><![CDATA[1]]></Step>
 						<LinkTo>true</LinkTo>
-						<Link>buildingLeaveRate</Link>
+						<Link>dataQueryRate</Link>
 					</ExtendedProperties>
 				</Control>
 				<Text>
@@ -4591,7 +4603,7 @@ send(room, main.infoDisplay);
 						</Timeout>
 						<Condition><![CDATA[true]]></Condition>
 						<Rate Class="CodeUnitValue">
-							<Code><![CDATA[5]]></Code>
+							<Code><![CDATA[main.dataQueryRate]]></Code>
 							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
 						</Rate>
 						<MessageType><![CDATA[Object]]></MessageType>
