@@ -16,17 +16,28 @@
 		<ActiveObjectClass>
 			<Id>1649081006419</Id>
 			<Name><![CDATA[Main]]></Name>
+			<AdditionalClassCode><![CDATA[void placeDisplays() {
+	traceln("Arranging displays");
+	int i = 0;
+	for(InfoDisplay d : infoDisplays) {
+		int x = 205 * (i % 3) + 10;
+		int y = 105 * (i / 3) + 220;
+		d.setPosition(new Position(x, y, 0));
+		i++;
+	}
+}]]></AdditionalClassCode>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
-			<StartupCode><![CDATA[infoAPI.setPosition(new Position(450.0, 0.0, 0.0));
-meiePilv.setPosition(new Position(450, 100, 0));
+			<StartupCode><![CDATA[traceln("Start");
 
-traceln("Start");
+infoAPI.setPosition(new Position(450, 50, 0.0));
+meiePilv.setPosition(new Position(450, 150, 0));
+adminUI.setPosition(new Position(550, 150, 0));
+
+placeDisplays();
 
 
 traceln("infoAPI seadistus: MeiePilve aadress");
 infoAPI.meiePilv = meiePilv;
-
-utils = new Utils(this);
 ]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
@@ -75,7 +86,7 @@ utils = new Utils(this);
 					</StepDurationCode>
 					<SpaceType>CONTINUOUS</SpaceType>
 					<WidthCode><![CDATA[400]]></WidthCode>
-					<HeightCode><![CDATA[400]]></HeightCode>
+					<HeightCode><![CDATA[200]]></HeightCode>
 					<ZHeightCode><![CDATA[0]]></ZHeightCode>
 					<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
 					<RowsCountCode><![CDATA[100]]></RowsCountCode>
@@ -176,18 +187,9 @@ utils = new Utils(this);
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int]]></Type>        
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
-					<Id>1651052924526</Id>
-					<Name><![CDATA[utils]]></Name>
-					<X>20</X><Y>650</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[Utils]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[10]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 			</Variables>
@@ -215,77 +217,9 @@ utils = new Utils(this);
 
 			<EmbeddedObjects>
 				<EmbeddedObject>
-					<Id>1649082276348</Id>
-					<Name><![CDATA[infoDisplay]]></Name>
-					<X>20</X><Y>620</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<PresentationId>1649082276350</PresentationId>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[mp5_test]]></PackageName>
-						<ClassName><![CDATA[InfoDisplay]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[mp5_test]]></PackageName>
-							<ClassName><![CDATA[InfoDisplay]]></ClassName>
-							<ItemName><![CDATA[1649082276301]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[displayedData]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[infoAPI]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>	
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
 					<Id>1649405748231</Id>
 					<Name><![CDATA[infoAPI]]></Name>
-					<X>610</X><Y>100</Y>
+					<X>730</X><Y>700</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -350,7 +284,7 @@ utils = new Utils(this);
 				<EmbeddedObject>
 					<Id>1649660275359</Id>
 					<Name><![CDATA[meiePilv]]></Name>
-					<X>610</X><Y>220</Y>
+					<X>870</X><Y>700</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -447,7 +381,7 @@ utils = new Utils(this);
 						<Name><![CDATA[countInHouse]]></Name>
 						<Type>count</Type>
 						<Expression><![CDATA[]]></Expression>
-						<Condition><![CDATA[item.inState(Student.InHouse)]]></Condition>
+						<Condition><![CDATA[item.inState(Student.InCampus)]]></Condition>
 					</StatisticsItem>
 					<StatisticsItem>
 						<Id>1650554437620</Id>
@@ -656,6 +590,74 @@ utils = new Utils(this);
 					<QuantityColumn>
 					</QuantityColumn>
 				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1651476814930</Id>
+					<Name><![CDATA[infoDisplays]]></Name>
+					<X>170</X><Y>660</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<PresentationId>1651476814932</PresentationId>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[mp5_test]]></PackageName>
+						<ClassName><![CDATA[InfoDisplay]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[mp5_test]]></PackageName>
+							<ClassName><![CDATA[InfoDisplay]]></ClassName>
+							<ItemName><![CDATA[1649082276301]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[displayedData]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[infoAPI]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>true</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[2]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InEnvironment>true</InEnvironment>	
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
 			</EmbeddedObjects>
 
 			<Presentation>
@@ -676,7 +678,7 @@ utils = new Utils(this);
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1649409927628</Id>
 					<Name><![CDATA[cmdSendUserCommand]]></Name>
-					<X>200</X><Y>530</Y>
+					<X>190</X><Y>720</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -686,7 +688,7 @@ utils = new Utils(this);
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor/>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[send(userCommand.getText(), infoDisplay);]]></ActionCode>
+						<ActionCode><![CDATA[//send(userCommand.getText(), infoDisplay);]]></ActionCode>
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="11" Style="0"/>
@@ -696,7 +698,7 @@ utils = new Utils(this);
 				<Text>
 					<Id>1649409927632</Id>
 					<Name><![CDATA[text4]]></Name>
-					<X>20</X><Y>520</Y>
+					<X>10</X><Y>710</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -718,7 +720,7 @@ utils = new Utils(this);
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1649409927634</Id>
 					<Name><![CDATA[userCommand]]></Name>
-					<X>20</X><Y>530</Y>
+					<X>10</X><Y>720</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -990,13 +992,79 @@ utils = new Utils(this);
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
+				<Control Type="Button">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1651478783101</Id>
+					<Name><![CDATA[cmdAddDisplay]]></Name>
+					<X>890</X><Y>200</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="40" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[add_infoDisplays("STARTUP MESSAGE", null);
+placeDisplays();
+]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[+]]></LabelText>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Button">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1651478805569</Id>
+					<Name><![CDATA[cmdRemoveDisplay]]></Name>
+					<X>940</X><Y>200</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="40" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[remove_infoDisplays(infoDisplays.random());
+placeDisplays();]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[-]]></LabelText>
+					</ExtendedProperties>
+				</Control>
+				<Text>
+					<Id>1651479421684</Id>
+					<Name><![CDATA[Ekraanid]]></Name>
+					<X>730</X><Y>210</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Ekraanide arv]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Level>
 				<EmbeddedObjectPresentation>
 					<Id>1649405748232</Id>
 					<Name><![CDATA[infoAPI_presentation]]></Name>
-					<X>640</X><Y>50</Y>
+					<X>760</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1015,7 +1083,7 @@ utils = new Utils(this);
 				<EmbeddedObjectPresentation>
 					<Id>1649660275360</Id>
 					<Name><![CDATA[meiePilv_presentation]]></Name>
-					<X>640</X><Y>170</Y>
+					<X>900</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1045,28 +1113,6 @@ utils = new Utils(this);
 					<Rotation>0.0</Rotation>
 					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
-					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
-					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>0.0</Latitude>
-					<Longitude>0.0</Longitude>
-				</EmbeddedObjectPresentation>
-				<EmbeddedObjectPresentation>
-					<Id>1649082276350</Id>
-					<Name><![CDATA[infoDisplay_presentation]]></Name>
-					<X>30</X><Y>30</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>10</Z>
-					<Rotation>0.0</Rotation>
-					<ScaleXCode><![CDATA[0.5]]></ScaleXCode>
-					<ScaleYCode><![CDATA[0.5]]></ScaleYCode>
-					<ScaleZCode><![CDATA[1]]></ScaleZCode>
-					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
-					<ScaleType>DEFINED_EXPLICITLY</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
 					<Latitude>0.0</Latitude>
@@ -1110,6 +1156,28 @@ utils = new Utils(this);
 					<Latitude>0.0</Latitude>
 					<Longitude>0.0</Longitude>
 				</EmbeddedObjectPresentation>
+				<EmbeddedObjectPresentation>
+					<Id>1651476814932</Id>
+					<Name><![CDATA[infoDisplays_presentation]]></Name>
+					<X>270</X><Y>660</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<ScaleXCode><![CDATA[0.5]]></ScaleXCode>
+					<ScaleYCode><![CDATA[0.5]]></ScaleYCode>
+					<ScaleZCode><![CDATA[1]]></ScaleZCode>
+					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
+					<ScaleType>DEFINED_EXPLICITLY</ScaleType>
+					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
+					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
+					<Latitude>0.0</Latitude>
+					<Longitude>0.0</Longitude>
+				</EmbeddedObjectPresentation>
 			</Presentation>
 
 		</ActiveObjectClass>
@@ -1126,6 +1194,8 @@ küsib infot InfoAPI käest]]></Description>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<StartupCode><![CDATA[traceln("ekraani seadistus: InfoAPI aadress");
 infoAPI = main.infoAPI;
+
+traceln("location: " + presentation.getX() + ", " + presentation.getY());
 ]]></StartupCode>
 			<DestroyCode><![CDATA[traceln("infoekraan võetakse maha");]]></DestroyCode>
 			<Generic>false</Generic>
@@ -1346,6 +1416,7 @@ TODO: handle timeouts]]></Description>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="80" Height="30">
 						<EntryAction><![CDATA[shapeBox.setFillColor(red);
+rectangle.setFillColor(red);
 displayedData = "Timeout requesting main page from InfoAPI";]]></EntryAction>
 						<FillColor>-65536</FillColor>
 					</Properties>
@@ -1359,7 +1430,8 @@ displayedData = "Timeout requesting main page from InfoAPI";]]></EntryAction>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="100" Height="30">
-						<EntryAction><![CDATA[shapeBox.setFillColor(cyan);]]></EntryAction>
+						<EntryAction><![CDATA[shapeBox.setFillColor(cyan);
+rectangle.setFillColor(white);]]></EntryAction>
 						<FillColor>-16711681</FillColor>
 					</Properties>
 				</StatechartElement>
@@ -1372,7 +1444,8 @@ displayedData = "Timeout requesting main page from InfoAPI";]]></EntryAction>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="220" Height="30">
-						<EntryAction><![CDATA[shapeBox.setFillColor(yellowGreen);]]></EntryAction>
+						<EntryAction><![CDATA[shapeBox.setFillColor(yellowGreen);
+rectangle.setFillColor(white);]]></EntryAction>
 						<FillColor>-6632142</FillColor>
 					</Properties>
 				</StatechartElement>
@@ -1415,6 +1488,7 @@ traceln("Request " + url + " sent");]]></EntryAction>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="120" Height="30">
 						<EntryAction><![CDATA[shapeBox.setFillColor(red);
+rectangle.setFillColor(red);
 displayedData = "Timeout requesting room page from InfoAPI";]]></EntryAction>
 						<FillColor>-65536</FillColor>
 					</Properties>
@@ -1428,7 +1502,8 @@ displayedData = "Timeout requesting room page from InfoAPI";]]></EntryAction>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="140" Height="30">
-						<EntryAction><![CDATA[shapeBox.setFillColor(cyan);]]></EntryAction>
+						<EntryAction><![CDATA[shapeBox.setFillColor(cyan);
+rectangle.setFillColor(white);]]></EntryAction>
 						<FillColor>-16711681</FillColor>
 					</Properties>
 				</StatechartElement>
@@ -1606,12 +1681,12 @@ displayedData = "Timeout requesting room page from InfoAPI";]]></EntryAction>
 				</StatechartElement>
 				<StatechartElement Class="Transition" ParentState="DisplayMainPage" ParentStateId="1649403265320">
 					<Id>1649408706032</Id>
-					<Name><![CDATA[transition2]]></Name>
+					<Name><![CDATA[gotEntryDataResponce]]></Name>
 					<X>370</X><Y>820</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<Label><X>10</X><Y>55</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>0</X><Y>120</Y></Point>
@@ -1916,7 +1991,6 @@ displayedData = s;]]></Action>
 						<ClassName><![CDATA[InfoDisplay]]></ClassName>
 						<ItemName><![CDATA[displayStatechart]]></ItemName>
 					</StatechartReference>
-					<DrawLine>true</DrawLine>
 					<LineStyle>SOLID</LineStyle>
 					<LineWidth>1</LineWidth>
 					<LineColor>-16711936</LineColor>
@@ -1972,8 +2046,8 @@ displayedData = s;]]></Action>
 					<LineColor>-16777216</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
-					<Width>470</Width>
-					<Height>260</Height>
+					<Width>400</Width>
+					<Height>200</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-1</FillColor>
 					<FillMaterial>null</FillMaterial>
@@ -2183,7 +2257,7 @@ displayedData = s;]]></Action>
 					<Text><![CDATA[text]]></Text>
 					<Font>
 						<Name>Courier</Name>
-						<Size>10</Size>
+						<Size>9</Size>
 						<Style>0</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
@@ -2191,7 +2265,7 @@ displayedData = s;]]></Action>
 				<Text>
 					<Id>1649247386604</Id>
 					<Name><![CDATA[txtDate]]></Name>
-					<X>10</X><Y>240</Y>
+					<X>10</X><Y>185</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2349,6 +2423,51 @@ displayedData = s;]]></Action>
 						<Type><![CDATA[HttpResponse]]></Type>        
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1651486326154</Id>
+					<Name><![CDATA[requestCount]]></Name>
+					<X>30</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1651486350305</Id>
+					<Name><![CDATA[timeoutCount]]></Name>
+					<X>30</X><Y>230</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1651486370730</Id>
+					<Name><![CDATA[errorCount]]></Name>
+					<X>30</X><Y>260</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1649661056276</Id>
 					<Name><![CDATA[meiePilv]]></Name>
@@ -2479,7 +2598,13 @@ traceln("Sent response from InfoAPI to "
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="100" Height="30">
-						<EntryAction><![CDATA[_ps300.setFillColor(red);]]></EntryAction>
+						<EntryAction><![CDATA[_ps300.setFillColor(red);
+timeoutCount++;
+
+List<String> ss = (List<String>)(responseToSend.getPayload());
+
+ss.add("MeiePilv:");
+ss.add("TIMEOUT");]]></EntryAction>
 						<FillColor>-65536</FillColor>
 					</Properties>
 				</StatechartElement>
@@ -2531,7 +2656,7 @@ ss.addAll(rs);]]></EntryAction>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1649405829031" Target="1649405846458" Trigger="message">
 						<Action><![CDATA[requestToHandle = msg;
-]]></Action>
+requestCount++;]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -2596,7 +2721,8 @@ ss.addAll(rs);]]></EntryAction>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1649405829031" Target="1649416133177" Trigger="message">
-						<Action><![CDATA[requestToHandle = msg;]]></Action>
+						<Action><![CDATA[requestToHandle = msg;
+requestCount++;]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -2758,7 +2884,7 @@ ss.add("MeiePilv: TIMEOUT");]]></Action>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1649661515992" Target="1649661311663" Trigger="timeout">
 						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[250]]></Code>
+							<Code><![CDATA[50]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[MILLISECOND]]></Unit>
 						</Timeout>
 						<Condition><![CDATA[true]]></Condition>
@@ -2822,7 +2948,6 @@ ss.add("MeiePilv: TIMEOUT");]]></Action>
 						<ClassName><![CDATA[InfoAPI]]></ClassName>
 						<ItemName><![CDATA[statechart]]></ItemName>
 					</StatechartReference>
-					<DrawLine>true</DrawLine>
 					<LineStyle>SOLID</LineStyle>
 					<LineWidth>1</LineWidth>
 					<LineColor>-65536</LineColor>
@@ -2997,6 +3122,93 @@ ss.add("MeiePilv: TIMEOUT");]]></Action>
 			</Presentation>
 
 				</Group>
+				<Text>
+					<Id>1651486034425</Id>
+					<Name><![CDATA[text]]></Name>
+					<X>-20</X><Y>-20</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[InfoAPI]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1651486286233</Id>
+					<Name><![CDATA[txtRequestCount]]></Name>
+					<X>-10</X><Y>-10</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[]]></Text>
+					<TextCode><![CDATA[requestCount]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1651486467121</Id>
+					<Name><![CDATA[txtTimeoutCount]]></Name>
+					<X>-10</X><Y>0</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[]]></Text>
+					<TextCode><![CDATA[timeoutCount]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1651486484228</Id>
+					<Name><![CDATA[txtErrorCount]]></Name>
+					<X>-10</X><Y>10</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[]]></Text>
+					<TextCode><![CDATA[errorCount]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Level>
@@ -3008,6 +3220,7 @@ ss.add("MeiePilv: TIMEOUT");]]></Action>
 			<Id>1649660275350</Id>
 			<Name><![CDATA[MeiePilv]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
+			<Import><![CDATA[import com.anylogic.cloud.util.RandomUtils;]]></Import>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1649660275348</Id>
@@ -3113,6 +3326,21 @@ ss.add("MeiePilv: TIMEOUT");]]></Action>
 						<Type><![CDATA[HttpRequest]]></Type>        
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1651487089158</Id>
+					<Name><![CDATA[requestCount]]></Name>
+					<X>60</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 			</Variables>
 			<StatechartElements>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
@@ -3123,20 +3351,22 @@ ss.add("MeiePilv: TIMEOUT");]]></Action>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties Width="100" Height="30">
-						<FillColor/>
+					<Properties Width="180" Height="30">
+						<EntryAction><![CDATA[_ps300.setFillColor(silver);]]></EntryAction>
+						<FillColor>-4144960</FillColor>
 					</Properties>
 				</StatechartElement>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1649660423807</Id>
 					<Name><![CDATA[HandlingRoomPageRequest]]></Name>
-					<X>250</X><Y>300</Y>
+					<X>180</X><Y>370</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="180" Height="30">
 						<EntryAction><![CDATA[traceln("InfoAPI: handle request");
+_ps300.setFillColor(yellow);
 HttpResponse res = new HttpResponse(200, "Response OK");
 
 //List<String> params = new ArrayList<String>(Arrays.asList({"Niiskus", "Temperatuur", "CO2", "Inimeste arv"}));
@@ -3157,7 +3387,22 @@ send(res, requestToHandle.getInitiator());
 
 requestToHandle = null;
 ]]></EntryAction>
-						<FillColor/>
+						<FillColor>-256</FillColor>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1651484807473</Id>
+					<Name><![CDATA[Waiting]]></Name>
+					<Description><![CDATA[Simulate misc timeouts]]></Description>
+					<X>180</X><Y>270</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="180" Height="30">
+						<EntryAction><![CDATA[_ps300.setFillColor(gold);
+]]></EntryAction>
+						<FillColor>-10496</FillColor>
 					</Properties>
 				</StatechartElement>
 				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
@@ -3185,15 +3430,15 @@ requestToHandle = null;
 					<ShowLabel>true</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>160</Y></Point>
-						<Point><X>20</X><Y>160</Y></Point>
+						<Point><X>0</X><Y>120</Y></Point>
 					</Points>
 					<IconOffset>50.0</IconOffset>
-					<Properties Source="1649660423802" Target="1649660423807" Trigger="message">
+					<Properties Source="1649660423802" Target="1651484807473" Trigger="message">
 						<Action><![CDATA[if(requestToHandle != null)
 	traceln("!!! Previous request canceled !!!");
 requestToHandle = msg;
-cloud.setRotation(cloud.getRotation() + 0.1);]]></Action>
+requestCount++;
+//cloud.setRotation(cloud.getRotation() + 0.1);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -3213,22 +3458,52 @@ cloud.setRotation(cloud.getRotation() + 0.1);]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1649660423817</Id>
 					<Name><![CDATA[requestHandled]]></Name>
-					<X>430</X><Y>310</Y>
-					<Label><X>10</X><Y>-110</Y></Label>
+					<X>360</X><Y>380</Y>
+					<Label><X>50</X><Y>-135</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>110</X><Y>0</Y></Point>
-						<Point><X>110</X><Y>-180</Y></Point>
-						<Point><X>-150</X><Y>-180</Y></Point>
+						<Point><X>40</X><Y>0</Y></Point>
+						<Point><X>40</X><Y>-250</Y></Point>
+						<Point><X>0</X><Y>-250</Y></Point>
 					</Points>
-					<IconOffset>220.0</IconOffset>
+					<IconOffset>170.0</IconOffset>
 					<Properties Source="1649660423807" Target="1649660423802" Trigger="timeout">
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[0.1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1651484852611</Id>
+					<Name><![CDATA[transition]]></Name>
+					<X>230</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>70</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1651484807473" Target="1649660423807" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[RandomUtils.uniform_discr(10, 1200)]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MILLISECOND]]></Unit>
 						</Timeout>
 						<Condition><![CDATA[true]]></Condition>
 						<Rate Class="CodeUnitValue">
@@ -3435,6 +3710,49 @@ cloud.setRotation(cloud.getRotation() + 0.1);]]></Action>
 			</Presentation>
 
 				</Group>
+				<Text>
+					<Id>1651486009187</Id>
+					<Name><![CDATA[text]]></Name>
+					<X>-20</X><Y>-10</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[MeiePilv]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1651487133084</Id>
+					<Name><![CDATA[text1]]></Name>
+					<X>-20</X><Y>10</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[]]></Text>
+					<TextCode><![CDATA[requestCount]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Level>
@@ -3539,6 +3857,30 @@ cloud.setRotation(cloud.getRotation() + 0.1);]]></Action>
 			<CurrentLevel>1650531227617</CurrentLevel>
 			<ConnectionsId>1650531227613</ConnectionsId>
 			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1651480038632</Id>
+					<Name><![CDATA[room]]></Name>
+					<X>50</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1651480098128</Id>
+					<Name><![CDATA[freeInfoDisplay]]></Name>
+					<X>50</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[InfoDisplay]]></Type>        
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1650531227638</Id>
 					<Name><![CDATA[year]]></Name>
@@ -3564,8 +3906,8 @@ cloud.setRotation(cloud.getRotation() + 0.1);]]></Action>
 			<StatechartElements>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1650533902286</Id>
-					<Name><![CDATA[NotInHouse]]></Name>
-					<X>260</X><Y>80</Y>
+					<Name><![CDATA[NotInCampus]]></Name>
+					<X>350</X><Y>80</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3577,8 +3919,8 @@ cloud.setRotation(cloud.getRotation() + 0.1);]]></Action>
 				</StatechartElement>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1650534038111</Id>
-					<Name><![CDATA[InHouse]]></Name>
-					<X>260</X><Y>180</Y>
+					<Name><![CDATA[InCampus]]></Name>
+					<X>350</X><Y>180</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3591,7 +3933,7 @@ cloud.setRotation(cloud.getRotation() + 0.1);]]></Action>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1650536643487</Id>
 					<Name><![CDATA[WantsToGetData]]></Name>
-					<X>260</X><Y>280</Y>
+					<X>350</X><Y>280</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3599,39 +3941,40 @@ cloud.setRotation(cloud.getRotation() + 0.1);]]></Action>
 					<Properties Width="200" Height="30">
 						<EntryAction><![CDATA[shapeBody.setFillColor(yellow);
 
-List<String> rooms = selectValues("select room from rooms"); 
+List<String> rooms = selectValues("select room from rooms");
 
-String room = randomFrom(rooms);
-
-main.requestsSentByStudents += 1;
+room = randomFrom(rooms);
 
 traceln("User wants to see room " + room + " data");
-//roomName = 
 
-
-send(room, main.infoDisplay);
-
-]]></EntryAction>
+freeInfoDisplay = null;
+for(InfoDisplay d : main.infoDisplays)
+	if(d.isIdle()) {
+		freeInfoDisplay = d;
+		break;
+	}]]></EntryAction>
 						<FillColor>-256</FillColor>
 					</Properties>
 				</StatechartElement>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1650903692330</Id>
 					<Name><![CDATA[GettingDataFromDisplay]]></Name>
-					<X>260</X><Y>360</Y>
+					<X>350</X><Y>360</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="200" Height="30">
-						<EntryAction><![CDATA[shapeBody.setFillColor(cyan);]]></EntryAction>
+						<EntryAction><![CDATA[shapeBody.setFillColor(cyan);
+send(room, freeInfoDisplay);
+main.requestsSentByStudents += 1;]]></EntryAction>
 						<FillColor>-16711681</FillColor>
 					</Properties>
 				</StatechartElement>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1650903837989</Id>
 					<Name><![CDATA[Frustrated]]></Name>
-					<X>80</X><Y>280</Y>
+					<X>170</X><Y>280</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3644,7 +3987,7 @@ send(room, main.infoDisplay);
 				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 					<Id>1650533895492</Id>
 					<Name><![CDATA[statechart]]></Name>
-					<X>310</X><Y>40</Y>
+					<X>400</X><Y>40</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3659,7 +4002,7 @@ send(room, main.infoDisplay);
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1650534065489</Id>
 					<Name><![CDATA[enterTheHouse]]></Name>
-					<X>290</X><Y>110</Y>
+					<X>380</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3690,7 +4033,7 @@ send(room, main.infoDisplay);
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1650534266532</Id>
 					<Name><![CDATA[leaveTheHouse]]></Name>
-					<X>340</X><Y>180</Y>
+					<X>430</X><Y>180</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3721,7 +4064,7 @@ send(room, main.infoDisplay);
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1650536675836</Id>
 					<Name><![CDATA[transition2]]></Name>
-					<X>340</X><Y>210</Y>
+					<X>430</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3751,7 +4094,7 @@ send(room, main.infoDisplay);
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1650536764384</Id>
 					<Name><![CDATA[transition3]]></Name>
-					<X>260</X><Y>290</Y>
+					<X>350</X><Y>290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3782,7 +4125,7 @@ send(room, main.infoDisplay);
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1650903717718</Id>
 					<Name><![CDATA[displayIsFree]]></Name>
-					<X>310</X><Y>310</Y>
+					<X>400</X><Y>310</Y>
 					<Label><X>10</X><Y>20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3797,7 +4140,7 @@ send(room, main.infoDisplay);
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 						</Timeout>
-						<Condition><![CDATA[main.infoDisplay.isIdle()]]></Condition>
+						<Condition><![CDATA[freeInfoDisplay != null]]></Condition>
 						<Rate Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
@@ -3812,7 +4155,7 @@ send(room, main.infoDisplay);
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1650903907461</Id>
 					<Name><![CDATA[gotData]]></Name>
-					<X>460</X><Y>370</Y>
+					<X>550</X><Y>370</Y>
 					<Label><X>60</X><Y>-90</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3844,7 +4187,7 @@ send(room, main.infoDisplay);
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1650903990219</Id>
 					<Name><![CDATA[transition]]></Name>
-					<X>130</X><Y>280</Y>
+					<X>220</X><Y>280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
