@@ -3502,7 +3502,7 @@ requestCount++;
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1651484807473" Target="1649660423807" Trigger="timeout">
 						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[RandomUtils.uniform_discr(10, 1200)]]></Code>
+							<Code><![CDATA[RandomUtils.uniform_discr(10, 500)]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[MILLISECOND]]></Unit>
 						</Timeout>
 						<Condition><![CDATA[true]]></Condition>
